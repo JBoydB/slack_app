@@ -1,9 +1,13 @@
 class StudentsController < ApplicationController
 
   def create
-    p "test"
-    p params
-    p "end"
+    student = Student.new(
+      student_name: "test1",
+      slack_name: "test2"
+      )
+    student.save
+    flash[:success] = "student successfully added!"
+    redirect_to "/students"
   end
 
   def index
@@ -11,6 +15,7 @@ class StudentsController < ApplicationController
   end
 
   def show
-
+    @student = student.find(params[:id])
+    render "show.html.erb"
   end
 end
