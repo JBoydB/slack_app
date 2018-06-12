@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20180612024548) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "media", force: :cascade do |t|
     t.integer "student_id"
     t.string "test_url"
